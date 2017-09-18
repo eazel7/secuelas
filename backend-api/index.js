@@ -1,0 +1,21 @@
+module.exports = {
+  accessCodes: require('./access-codes'),
+  carriers: require('./carriers'),
+  certificates: require('./certificates'),
+  customerLocations: require('./customer-locations'),
+  customers: require('./customers'),
+  domains: require('./domains'),
+  emails: require('./emails'),
+  gateway: require('./gateway'),
+  georouting: require('./georouting'),
+  orders: require('./orders'),
+  products: require('./products'),
+  productZones: require('./product-zones'),
+  shops: require('./shops'),
+  users: require('./users'),
+  scheduledDeliveries: require('./scheduled-deliveries'),
+  warehouses: require('./warehouses'),
+  zones: require('./zones'),
+  pathfinder: require('./pathfinder'),
+  tokens: require('./tokens')
+};

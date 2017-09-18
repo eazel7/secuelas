@@ -1,0 +1,72 @@
+#! /usr/bin/env node
+
+require('async')
+    .autoInject({
+        listen: (server, port, callback) => {
+            server.listen(port);
+
+            callback();
+        },
+        port: (config, callback) => callback(null, config.integrated.port),
+        config: (callback) => callback(null, require('config')),
+        db: (config, callback) => require('mongodb').MongoClient.connect(config.integrated.db, callback),
+        io: (server, api, callback) => callback(null, require('../io-handler')(server, api)),
+        bus: (callback) => {
+            const EventEmitter = require('events').EventEmitter;
+            var bus = new EventEmitter();
+
+            bus.setMaxListeners(0);
+
+            callback(null, bus);
+        },
+        api: (config, db, bus, callback) => {
+            const API = require('../backend-api');
+
+            var api = {};
+
+            for (var service in API) {
+                api[service] = Object.create(API[service].prototype);
+                API[service].apply(api[service], [config.api, db, bus]);
+            }
+
+            callback(null, api);
+        },
+        frontendApi: (api, callback) => {
+            const API = require('../frontend-api');
+
+            var frontendApi = {};
+
+            for (var service in API) {
+                frontendApi[service] = Object.create(API[service].prototype);
+                API[service].apply(frontendApi[service], [api]);
+            }
+
+            callback(null, frontendApi);
+        },
+        app: (frontendApi, api, callback) => {
+            const App = require('../app');
+
+            var app = new App(frontendApi, api);
+
+            callback(null, app);
+        },
+        server: (app, callback) => {
+            var server = require('http').createServer(app);
+
+            callback(null, server);
+        },
+        listen: (server, port, callback) => {
+            server.listen(port);
+
+            callback();
+        }
+    }, (err, results) => {
+        if (err) {
+            console.error(err);
+
+            return process.exit(-1);
+        }
+
+        console.log('listening on port ' + results.port);
+    });
+    

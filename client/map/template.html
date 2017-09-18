@@ -1,0 +1,27 @@
+<leaflet 
+ng-if="ctrl.drawOptions"
+lf-draw="ctrl.drawOptions"
+watch-options="{ paths: { individual: { type: 'watchDeep'}, type: 'watchCollection' }, markers: { individual: { type: 'watchDeep'}, type: 'watchCollection' }, geojson: { individual: { type: 'watchDeep'}, type: 'watchCollection' } }"
+paths="paths"
+events="{ markers: { enable: 'click', logic: 'emit' }}"
+center="center" 
+markers="markers"
+geojson="ctrl.geojson"
+geojson-nested="true"
+style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 500; "
+>
+</leaflet>
+<leaflet 
+ng-if="!ctrl.drawOptions"
+watch-options="{ paths: { individual: { type: 'watchDeep'}, type: 'watchCollection' }, markers: { individual: { type: 'watchDeep'}, type: 'watchCollection' }, geojson: { individual: { type: 'watchDeep'}, type: 'watchCollection' } }"
+paths="paths"
+events="{ markers: { enable: 'click', logic: 'emit' }}"
+center="center" 
+markers="markers"
+geojson="ctrl.geojson"
+geojson-nested="true"
+style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 500; "
+>
+</leaflet>
+<ng-transclude>
+</ng-transclude>

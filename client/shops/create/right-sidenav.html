@@ -1,0 +1,15 @@
+<form name="createShop" layout="column"  layout-fill>
+    <md-content layout="column" flex layout-padding>
+
+        <md-input-container class="md-input-block">
+            <label>Nombre</label>
+            <input type="text" ng-model="ctrl.shop.name" required />
+        </md-input-container>
+        <md-input-container class="md-input-block">
+            <label>Dirección</label>
+            <input type="text" ng-model="ctrl.shop.address" />
+        </md-input-container>
+    </md-content>
+    <div flex></div>
+    <md-button class="md-primary md-raised" ng-disabled="ctrl.canConfirm()" ng-click="ctrl.confirm()">Crear</md-button>
+</form>

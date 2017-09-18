@@ -1,0 +1,36 @@
+<md-dialog aria-label="Cuenta existente">
+    <form name="signup" ng-cloak layout-fill flex>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Cuenta existente</h2>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content class="md-dialog-content">
+            <md-input-container class="md-prompt-input-container">
+                <label>Correo electrónico</label>
+                <input type="email" ng-model="ctrl.email" name="email" required />
+                <div ng-messages="signup.email.$error">
+                    <div ng-message="required">Es obligatorio</div>
+                    <div ng-message="email">Inválido</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-prompt-input-container">
+                <label>Contraseña</label>
+                <input type="password" name="password" ng-model="ctrl.password" required />
+                <div ng-messages="signup.password.$error">
+                    <div ng-message="required">Es obligatorio</div>
+                </div>
+            </md-input-container>
+            <div ng-if="ctrl.serverError">{{ctrl.serverError}}</div>
+        </md-dialog-content>
+        <md-dialog-actions>
+            <md-button ng-click="ctrl.cancel()">
+                Cancelar
+            </md-button>
+            <md-button ng-click="ctrl.confirm()" ng-disabled="!ctrl.canConfirm()">
+                Confirmar
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

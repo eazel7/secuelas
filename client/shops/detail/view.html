@@ -1,0 +1,24 @@
+<md-content layout="column" flex layout-padding>
+    <md-input-container class="md-input-block">
+        <label>Nombre</label>
+        <input type="text" ng-model="ctrl.shop.name" disabled />
+    </md-input-container>
+</md-content>
+
+<section>
+    <md-subheader>Sucursales</md-subheader>
+
+    <warehouses-list warehouses="ctrl.warehouses"></warehouses-list>
+</section>
+
+<section>
+    <md-subheader>Productos</md-subheader>
+
+    <products-list products="ctrl.products"></products-list>
+</section>
+
+<section>
+    <md-subheader>Zonas</md-subheader>
+
+    <zones-list zones="ctrl.zones"></zones-list>
+</section>

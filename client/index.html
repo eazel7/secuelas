@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cero Vueltas</title>
+</head>
+
+<body layout="row">
+  <left-sidenav></left-sidenav>
+  <div layout="row" layout-fill>
+    <div layout="column" flex>
+      <md-toolbar md-whiteframe="3" layout="row" layout-align="center center">
+        <md-button ng-controller="LeftSidenavToggle as ctrl" class="md-icon-button" ng-click="ctrl.toggleSidenav()">
+          <ng-md-icon icon="menu"></ng-md-icon>
+        </md-button>
+        <span flex></span>
+        <ui-view layout layout-align="center center" name="top-toolbar"></ui-view>
+      </md-toolbar>
+
+      <md-content style="position: relative" flex layout-fill class="page-content">
+        <ui-view></ui-view>
+      </md-content>
+    </div>
+
+
+  </div>
+  <right-sidenav></right-sidenav>
+</body>
+
+</html>

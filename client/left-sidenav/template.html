@@ -1,0 +1,16 @@
+<md-sidenav layout-fill layout="column" class="md-sidenav-left md-whiteframe-z2" md-disable-backdrop md-component-id="left">
+    <md-toolbar md-whiteframe="3" class="md-hue-2">
+        <span flex></span>
+        <div ui-view="title" layout="row" class="md-toolbar-tools-bottom inset">
+
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-button ng-repeat="l in links|filter:{first: true}" ng-click="click(l)">{{l.name}}</md-button>
+    <div flex></div>
+    <md-button ng-repeat="l in links|filter:{last: true}" ng-click="click(l)">{{l.name}}</md-button>
+    <md-divider></md-divider>
+    <md-button ng-click="ctrl.logout()">
+        Cerrar sesión<br />
+        {{ctrl.userEmail}}</md-button>
+</md-sidenav>

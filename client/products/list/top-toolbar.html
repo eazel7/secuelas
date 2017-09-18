@@ -1,0 +1,7 @@
+<md-select ng-model="ctrl.filter.shop" placeholder="Seleccione el local">
+<md-option ng-value="shop._id" ng-repeat="shop in ctrl.shops">{{ shop.name }}</md-option>
+</md-select>
+
+<md-button ui-sref="^.create">
+    Crear
+</md-button>

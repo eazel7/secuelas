@@ -1,0 +1,14 @@
+<form name="newFeature" layout-fill layout="column">
+    <md-content layout-padding>
+        <md-input-container class="md-block">
+            <label>Nombre</label>
+            <input type="text" ng-model="ctrl.zone.name" required name="name" />
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Área</label>
+            <input type="text" disabled value="{{ctrl.area|number:2}} mts²"/>
+        </md-input-container>
+    </md-content>
+    <div flex></div>
+    <md-button ng-disabled="!ctrl.canConfirm()" ng-click="ctrl.confirm()" class="md-raised md-primary">Confirmar</md-button>
+</form>

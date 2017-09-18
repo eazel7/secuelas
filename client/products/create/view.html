@@ -1,0 +1,21 @@
+<form name="createProduct">
+    <md-content layout="column" layout-padding>
+        <md-input-container>
+            <label>Nombre</label>
+            <input type="text" name="name" ng-model="ctrl.product.name" required />
+            <div ng-messages="createProduct.name.$error">
+                <div ng-message="required">Es obligatorio</div>
+            </div>
+        </md-input-container>
+        <md-input-container>
+            <label>Descripción</label>
+            <textarea style="resize: vertical" rows="4" name="description" ng-model="ctrl.product.description" required></textarea>
+            <div ng-messages="createProduct.description.$error">
+                <div ng-message="required">Es obligatorio</div>
+            </div>
+        </md-input-container>
+        <md-select ng-model="ctrl.product.shop" placeholder="Seleccione el local">
+          <md-option ng-value="shop._id" ng-repeat="shop in ctrl.shops">{{ shop.name }}</md-option>
+        </md-select>
+    </md-content>
+</form>

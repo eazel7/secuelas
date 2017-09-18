@@ -1,0 +1,18 @@
+<md-content layout="column" layout-padding>
+    <md-section></md-section>
+    <md-input-container>
+        <label>Nombre</label>
+        <input type="text" ng-model="ctrl.warehouse.name" disabled />
+    </md-input-container>
+    <md-input-container>
+        <label>Dirección</label>
+        <input type="text" ng-model="ctrl.warehouse.address" disabled />
+    </md-input-container>
+    <div layout="row">
+        <md-input-container flex>
+            <label>Local</label>
+            <input type="text" ng-model="ctrl.shop.name" disabled />
+        </md-input-container>
+        <md-button ui-sref="shops.detail({shop: ctrl.shop._id})">Ver local</md-button>
+    </div>
+</md-content>

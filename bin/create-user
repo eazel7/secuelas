@@ -1,0 +1,105 @@
+#! /usr/bin/env node
+
+const validEmailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+const API = require('../backend-api/api');
+const config = require('config');
+const EventEmitter = require('events').EventEmitter;
+
+require('async')
+    .autoInject({
+        db: function(callback) {
+            require('mongodb').MongoClient.connect(config.api.db, callback);
+        },
+        bus: function(callback) {
+            var bus = new EventEmitter();
+            bus.setMaxListeners(0);
+
+            callback(null, bus);
+        },
+        api: function(db, bus, callback) {
+            callback(null, new API(config.api, db, bus));
+        },
+        answers: function(callback) {
+            var argv = require('minimist')(process.argv);
+
+            var inquirer = require('inquirer');
+
+            inquirer.prompt([{
+                'name': 'email',
+                'type': 'string',
+                'message': 'What is the email of the user?',
+                'default': argv.email,
+                'validate': function(value) {
+                    if (validEmailRegex.test(value)) return Promise.resolve(true);
+                    return Promise.reject('invalid email');
+                }
+            }, {
+                'name': 'name',
+                'type': 'string',
+                'message': 'What is the real name of the user?',
+                'default': argv.name,
+                'validate': function(value) {
+                    if (!value) return Promise.reject('Providing user\'s real name is mandatory');
+                    return Promise.resolve(true);
+                }
+            }, {
+                'name': 'systemWideRole',
+                'type': 'list',
+                'message': 'What is the system-wide role of the user?',
+                'default': argv.systemWideRole,
+                'choices': [{
+                    'name': 'None',
+                    'value': 'none',
+                    'short': 'none'
+                }, {
+                    'name': 'Instance administrator',
+                    'value': 'instance-admin',
+                    'short': 'instance admin'
+                }]
+            }]).then(function(answers) {
+                callback(null, answers);
+            }, function(err) {
+                callback(err || new Error());
+            });
+        },
+        newUser: function(answers, api, callback) {
+            var emailTag = 'email:' + answers.email;
+            var tags = [emailTag];
+
+            if (answers.systemWideRole !== 'instance-admin') {
+                tags.push('system-wide-role:' + answers.systemWideRole);
+            }
+
+            var profile = {
+                email: answers.email,
+                name: answers.name
+            };
+
+            return api.users.findByTag(emailTag)
+                .then((users) => {
+                    if (users.length) return Promise.reject(new Error('a user with that email already exists'));
+                })
+                .then(() => {
+                    return api.users.create(tags, profile);
+                })
+                .then((id) => {
+                    callback(null, {
+                        id: id,
+                        name: profile.name,
+                        email: profile.email,
+                        tags: tags
+                    });
+                })
+                .catch(function (err) {
+                    callback(err);
+                });
+        }
+    }, function(err, results) {
+        if (err) {
+            console.error(err.toString());
+            return process.exit(-1);
+        }
+        process.stdout.write(require('js-yaml').safeDump(results.newUser));
+
+        return process.exit();
+    });
