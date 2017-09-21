@@ -15,7 +15,7 @@ require('angular')
         '$stateProvider',
         function ($stateProvider) {
             $stateProvider.state({
-                name: 'shops',
+                name: 'cerovueltas.shops',
                 url: '/shops',
                 abstract: true
             })

@@ -4,8 +4,16 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "watch build",
             "type": "npm",
             "script": "watch",
+            "group": "none",
+            "problemMatcher": []
+        },
+        {
+            "label": "build",
+            "type": "npm",
+            "script": "build",
             "group": {
                 "kind": "build",
                 "isDefault": true

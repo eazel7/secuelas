@@ -17,7 +17,7 @@ require('angular')
         '$stateProvider',
         function ($stateProvider) {
             $stateProvider.state({
-                name: 'shops.detail',
+                name: 'cerovueltas.shops.detail',
                 url: '/detail/:shop',
                 resolve: {
                     shop: (API, $stateParams) => {
@@ -50,7 +50,7 @@ require('angular')
                         controller: function ShopDetailTopToolbarController (shop, API, $state) {
                             this.remove = () => {
                                 API.shops.remove(shop._id)
-                                .then(() => $state.go('shops.list', {}, {reload: true}));
+                                .then(() => $state.go('cerovueltas.shops.list', {}, {reload: true}));
                             };
                         }
                     }

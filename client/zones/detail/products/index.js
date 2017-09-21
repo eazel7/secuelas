@@ -14,7 +14,7 @@ require('angular')
 .config(
     ($stateProvider) => {
         $stateProvider.state({
-            name: 'zones.detail.products',
+            name: 'cerovueltas.zones.detail.products',
             url: '/products',
             resolve: {
                 zoneProducts: (API, zone) => API.products.listByZone(zone._id),

@@ -13,6 +13,8 @@ require('angular')
         '$stateProvider',
         function ($stateProvider) {
             $stateProvider.state({
+                name: 'cerovueltas.products.detail',
+                url: '/detail/:product',
                 resolve: {
                     product: ($stateParams, API) => {
                         return API.products.getById($stateParams.product);
@@ -21,8 +23,6 @@ require('angular')
                         return API.shops.getById(product.shop);
                     }
                 },
-                name: 'products.detail',
-                url: '/detail/:product',
                 views: {
                     '@': {
                         template: require('raw-loader!./view.html'),

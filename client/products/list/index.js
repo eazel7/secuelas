@@ -13,10 +13,10 @@ require('angular')
         'LeftSidenavLinks',
         function (LeftSidenavLinks) {
             LeftSidenavLinks.push({
-                first: true,
                 name: 'Productos',
-                stateName: 'products.list'
-            })
+                stateName: 'cerovueltas.products.list',
+                first: true
+            });
         }
     ]
     )
@@ -25,7 +25,7 @@ require('angular')
         '$stateProvider',
         function ($stateProvider) {
             $stateProvider.state({
-                name: 'products.list',
+                name: 'cerovueltas.products.list',
                 url: '/',
                 resolve: {
                     filter: (shops) => {

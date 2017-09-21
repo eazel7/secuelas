@@ -12,7 +12,7 @@ require('angular')
     .config(
     ($stateProvider) => {
         $stateProvider.state({
-            name: 'shops.detail.zones.create',
+            name: 'cerovueltas.shops.detail.zones.create',
             url: '/create',
             resolve: {
                 zone: () => {
@@ -54,7 +54,7 @@ require('angular')
                         });
                     }
                 },
-                'map-child@shops.detail.zones': {
+                'map-child@cerovueltas.shops.detail.zones': {
                     template: require('raw-loader!./map-child.html'),
                     controllerAs: 'ctrl',
                     controller: function (zone) {

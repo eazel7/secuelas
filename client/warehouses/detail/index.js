@@ -11,7 +11,7 @@ require('angular')
         '$stateProvider',
         function ($stateProvider) {
             $stateProvider.state({
-                name: 'warehouses.detail',
+                name: 'cerovueltas.warehouses.detail',
                 url: '/detail/:warehouse',
                 resolve: {
                     warehouse: function (API, $stateParams) {

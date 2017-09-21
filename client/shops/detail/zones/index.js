@@ -13,7 +13,7 @@ require('angular')
 .config(
     ($stateProvider) => {
         $stateProvider.state({
-            name: 'shops.detail.zones',
+            name: 'cerovueltas.shops.detail.zones',
             url: '/zones',
             resolve: {
                 mapCenter: function () {
@@ -57,7 +57,7 @@ require('angular')
                 'top-toolbar@': {
                     template: require('raw-loader!./top-toolbar.html')
                 },
-                'map-child@shops.detail.zones': {
+                'map-child@cerovueltas.shops.detail.zones': {
                     template: require('raw-loader!./map-child.html'),
                     controllerAs: 'ctrl',
                     controller: function (zones) {

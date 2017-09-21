@@ -8,12 +8,24 @@ angular
     [
         require('./left-sidenav'),
         require('./right-sidenav'),
+        require('./home'),
         require('./login'),
         require('./products'),
         require('./shops'),
         require('./zones'),
-        require('./warehouses')
+        require('./warehouses'),
+        require('angular-ui-router')
     ]
+    )
+    .config(
+        ($stateProvider, $urlRouterProvider) => {
+            $urlRouterProvider.when('', '/');
+
+            $stateProvider.state({
+                name: 'cerovueltas',
+                abstract: true
+            })
+        }
     );
     
 var doc = angular

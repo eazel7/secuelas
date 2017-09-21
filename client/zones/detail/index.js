@@ -12,7 +12,7 @@ require('angular')
 .config(
     ($stateProvider) => {
         $stateProvider.state({
-            name: 'zones.detail',
+            name: 'cerovueltas.zones.detail',
             url: '/detail/:zone',
             resolve: {
                 zone: ($stateParams, API) => API.zones.getById($stateParams.zone)

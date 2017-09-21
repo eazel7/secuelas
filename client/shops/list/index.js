@@ -14,8 +14,8 @@ require('angular')
     'LeftSidenavLinks',
     function (LeftSidenavLinks) {
         LeftSidenavLinks.push({
+            stateName: 'cerovueltas.shops.list',
             name: 'Locales',
-            stateName: 'shops.list',
             first: true
         })
     }
@@ -30,7 +30,7 @@ require('angular')
                         return API.shops.list();
                     }
                 },
-                name: 'shops.list',
+                name: 'cerovueltas.shops.list',
                 url: '/',
                 views: {
                     'top-toolbar@': {

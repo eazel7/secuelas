@@ -13,6 +13,8 @@ require('angular')
         '$stateProvider',
         function ($stateProvider) {
             $stateProvider.state({
+                name: 'cerovueltas.products.create',
+                url: '/create',
                 resolve: {
                     product: function (shops) {
                         return {
@@ -25,8 +27,6 @@ require('angular')
                         return API.shops.list();
                     }
                 },
-                name: 'products.create',
-                url: '/create',
                 views: {
                     '@': {
                         template: require('raw-loader!./view.html'),
