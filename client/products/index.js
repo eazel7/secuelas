@@ -13,7 +13,7 @@ require('angular')
         '$stateProvider',
         function ($stateProvider) {
             $stateProvider.state({
-                name: 'products',
+                name: 'cerovueltas.products',
                 url: '/products',
                 abstract: true
             })

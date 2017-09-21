@@ -9,7 +9,7 @@ require('angular')
 .config(
     ($stateProvider) => {
         $stateProvider.state({
-            name: 'zones',
+            name: 'cerovueltas.zones',
             abstract: true,
             url: '/zones'
         })
