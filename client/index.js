@@ -7,6 +7,7 @@ angular
     (module.exports = 'cerovueltas'),
     [
         require('./left-sidenav'),
+        require('./addresses-sidenav-view'),
         require('./right-sidenav'),
         require('./home'),
         require('./login'),
@@ -18,13 +19,25 @@ angular
     ]
     )
     .config(
-        ($stateProvider, $urlRouterProvider) => {
+        ($stateProvider, $urlRouterProvider, AddressesLeftSidenavViewTemplate) => {
             $urlRouterProvider.when('', '/');
 
             $stateProvider.state({
                 name: 'cerovueltas',
-                abstract: true
-            })
+                abstract: true,
+                resolve: {
+                    addresses: (API) => {
+                        return API.addresses.list();
+                    }
+                },
+                views: {
+                    'left-sidenav@': {
+                        template: AddressesLeftSidenavViewTemplate,
+                        controllerAs: 'ctrl',
+                        controller: 'AddressesLeftSidenavVieController'
+                    }
+                }
+            });
         }
     );
     

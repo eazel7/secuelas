@@ -1,10 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const BitBarWebpackProgressPlugin = require("bitbar-webpack-progress-plugin");
 
 module.exports = {
   entry: './client/index.js',
   plugins: [
+    new BitBarWebpackProgressPlugin(),
     new CleanWebpackPlugin(['dist/*']),
     new HtmlWebpackPlugin({
       title: 'Cero Vueltas',

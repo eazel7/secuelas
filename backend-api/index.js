@@ -1,5 +1,6 @@
 module.exports = {
   accessCodes: require('./access-codes'),
+  addresses: require('./addresses'),
   carriers: require('./carriers'),
   certificates: require('./certificates'),
   customerLocations: require('./customer-locations'),
