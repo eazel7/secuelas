@@ -1,0 +1,9 @@
+<form name="createAddress">
+    <md-content layout-padding>
+            <md-input-container class="md-block">
+                <label>Nombre</label>
+                <input type="text" ng-model="ctrl.address.name" name="name" required />
+            </md-input-container>
+    </md-content>
+    <search-address select="ctrl.selectAddress($address)"></search-address>
+</form>

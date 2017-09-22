@@ -1,0 +1,15 @@
+<md-content layout-padding>
+    <md-input-container class="md-block">
+        <label>Dirección</label>
+        <input type="text" ng-model="ctrl.searchText" />
+    </md-input-container>
+</md-content>
+
+<md-progress-linear mode="indeterminate" ng-if="ctrl.searching"></md-progress-linear>
+ 
+<md-list>
+    <md-list-item ng-click="ctrl.select(address)" ng-repeat="address in ctrl.results">
+        <span flex>{{address.searchText}}</span>
+        <ng-md-icon icon="location_on"></ng-md-icon>
+    </md-list-item>
+</md-list>

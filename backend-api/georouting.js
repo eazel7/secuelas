@@ -30,11 +30,15 @@ Georouting.prototype.geocodeAddress = function (address) {
       if (err) return reject(err);
 
       resolve(data.map((res) => {
+        var geo = require('turf').point([res.lon, res.lat]).geometry;
+        
         return {
+          searchText: address,
           location: {
             latitude: res.lat,
             longitude: res.lon
           },
+          geo: geo,
           address: {
             road: res.address.road,
             country: res.address.country,

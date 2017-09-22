@@ -7,7 +7,7 @@ angular
     (module.exports = 'cerovueltas'),
     [
         require('./left-sidenav'),
-        require('./addresses-sidenav-view'),
+        require('./addresses'),
         require('./right-sidenav'),
         require('./home'),
         require('./login'),
@@ -34,7 +34,7 @@ angular
                     'left-sidenav@': {
                         template: AddressesLeftSidenavViewTemplate,
                         controllerAs: 'ctrl',
-                        controller: 'AddressesLeftSidenavVieController'
+                        controller: 'AddressesLeftSidenavViewController'
                     }
                 }
             });
