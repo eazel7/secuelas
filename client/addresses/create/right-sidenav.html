@@ -5,5 +5,5 @@
                 <input type="text" ng-model="ctrl.address.name" name="name" required />
             </md-input-container>
     </md-content>
-    <search-address select="ctrl.selectAddress($address)"></search-address>
+    <search-address results="ctrl.searchResults" select="ctrl.selectAddress($address)"></search-address>
 </form>

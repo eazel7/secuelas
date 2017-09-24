@@ -31,8 +31,9 @@ require('angular')
                         (searchText) => {
                             this.searching = true;
 
-                            API.addresses.search(searchText).then((results) => {
-                                this.results = results;
+                            API.addresses.search(searchText).then((newResults) => {
+                                this.results.splice(0, this.results.length);
+                                this.results.push.apply(this.results, newResults);
                                 this.searching = false;
                             }, (err) => {
                                 this.searching = false;

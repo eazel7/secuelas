@@ -7,6 +7,8 @@ Addresses.prototype.search = function (address) {
 };
 
 Addresses.prototype.list = function (userToken) {
+    if (!userToken) return Promise.reject(new Error('user is not authenticated'));
+    
     return this.api.addresses.list(['user:' + userToken.userId]);
 };
 

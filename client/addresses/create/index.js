@@ -14,7 +14,11 @@ require('angular')
             name: 'cerovueltas.addresses.create',
             url: '/create',
             resolve: {
-                features: () => []
+                openRightSidenav: (RightSidenavService) => {
+                    RightSidenavService.open().then(() => RightSidenavService.lock());
+                },
+                features: () => [],
+                searchResults: () => []
             },
             views: {
                 '@': {
@@ -29,14 +33,22 @@ require('angular')
                 'right-sidenav@': {
                     template: require('raw-loader!./right-sidenav.html'),
                     controllerAs: 'ctrl',
-                    controloler: function CreateAddressRightViewController(features) {
+                    controloler: function CreateAddressRightViewController($scope, searchResults, features) {
                         this.features = features;
+                        this.searchResults = searchResults;
+
+                        $scope.$watch(() => searchResults, (searchResults) => {
+                            for (var i = features.length - 1; i > 0; i--) {
+                                if (features[i].searchResult) features.splice(i, 1);
+                            }
+
+                            searchResults.forEach(
+                                (r) => {
+                                    features.push(require('turf').point(r.geo));
+                                }
+                            );
+                        }, true);
                     }
-                }
-            },
-            resolve: {
-                openRightSidenav: (RightSidenavService) => {
-                    RightSidenavService.open().then(() => RightSidenavService.lock());
                 }
             },
             onEnter: (openRightSidenav) => { }
