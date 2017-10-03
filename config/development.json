@@ -1,8 +1,2 @@
 {
-    "api": {
-        "rsa": {
-            "privateKey": "-----BEGIN RSA PRIVATE KEY-----\nMIIBOwIBAAJBAILdo+RBQPU3UyHsU8vkMO/KNodhjIcrD/hwQpsnp4z4fmSmBV11\nyo8HJoNKU7NfMlMpzf1XdQ8cP20NWPzltQ8CAwEAAQJAGOBdCUTGPlb3/JjaDQYh\nr1N3LiEC/6bV8FoWrzvIg+lpLd3aNj+L7tASOucvFfktDblZUeguViiLEfvRV2Hd\nQQIhAOj7ykBgyqIDKiwJhd2HJe/fIuPCFvtEhmB5GPTnP2L/AiEAj8tEZ1KHB4mF\nQPBY8wFFUkHrkDNpkZ8LYt3y7OAdffECIQDipDXuhHn6OsvmhOkFRDhibRVarG+A\nxPtXk9X0P5SI7wIgKw6KpQWpOTCMni1Z9SnkQAVNLBi4+8nL9wbOvu885YECIQC5\nPgMpgyUtklTjl6qh8/W7E35ZORWqW1DEitgTueWGqA==\n-----END RSA PRIVATE KEY-----",
-            "publicKey": "-----BEGIN RSA PUBLIC KEY-----\nMEgCQQCC3aPkQUD1N1Mh7FPL5DDvyjaHYYyHKw/4cEKbJ6eM+H5kpgVddcqPByaD\nSlOzXzJTKc39V3UPHD9tDVj85bUPAgMBAAE=\n-----END RSA PUBLIC KEY-----"
-        }
-    }
 }

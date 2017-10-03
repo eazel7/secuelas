@@ -1,6 +1,6 @@
 require('angular')
 .module(
-    (module.exports = 'cerovueltas.local-storage'),
+    (module.exports = 'local-storage'),
     []
 )
 .service(

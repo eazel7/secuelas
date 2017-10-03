@@ -4,38 +4,24 @@ const angular = require('angular');
 
 angular
     .module(
-    (module.exports = 'cerovueltas'),
+    (module.exports = 'secuelas'),
     [
         require('./left-sidenav'),
-        require('./addresses'),
         require('./right-sidenav'),
         require('./home'),
-        require('./login'),
-        require('./products'),
-        require('./shops'),
-        require('./zones'),
-        require('./warehouses'),
         require('angular-ui-router')
     ]
     )
     .config(
-        ($stateProvider, $urlRouterProvider, AddressesLeftSidenavViewTemplate) => {
+        ($stateProvider, $urlRouterProvider) => {
             $urlRouterProvider.when('', '/');
 
             $stateProvider.state({
-                name: 'cerovueltas',
+                name: 'secuelas',
                 abstract: true,
                 resolve: {
-                    addresses: (API) => {
-                        return API.addresses.list();
-                    }
                 },
                 views: {
-                    'left-sidenav@': {
-                        template: AddressesLeftSidenavViewTemplate,
-                        controllerAs: 'ctrl',
-                        controller: 'AddressesLeftSidenavViewController'
-                    }
                 }
             });
         }
@@ -47,5 +33,5 @@ var doc = angular
 doc
     .ready(function () {
         angular
-            .bootstrap(document, ['cerovueltas']);
+            .bootstrap(document, ['secuelas']);
     });

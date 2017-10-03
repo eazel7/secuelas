@@ -1,6 +1,6 @@
 require('angular')
     .module(
-    (module.exports = 'cerovueltas.api'),
+    (module.exports = 'api'),
     [
         require('./local-storage')
     ]
@@ -25,7 +25,6 @@ require('angular')
                         params,
                         {
                             headers: {
-                                'cerovueltas': LocalStorage.userToken
                             }
                         })
                         .then(function (data) {

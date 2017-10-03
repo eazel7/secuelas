@@ -1,39 +1,13 @@
 {
     "integrated": {
-        "db": "mongodb://localhost:27017/cerovueltas-dev",
+        "db": "mongodb://localhost:27017/secuelas-dev",
         "port": 3000
     },
     "app": {
         "cookieSecret": "abcd1234",
-        "sessionSecret": "abcd1234",
-        "www": "/www/",
-        "carrier": "/repartidor/",
-        "login": "/login/",
-        "customer": "/cliente/",
-        "landing": "/empezar/",
-        "signup": "/sumate/",
-        "shops": "/distribuidora/"
+        "sessionSecret": "abcd1234"
     },
     "api": {
-        "language": "sp",
-        "db": "mongodb://localhost:27017/cerovueltas-dev",
-        "osrm": "http://osrm:5000",
-        "nominatim": "http://nominatim.openstreetmap.org",
-        "email": {
-            "outgoing": {
-                "from": "Cero Vueltas <dev@cerovueltas.com.ar>",
-                "tls": true,
-                "port": 587,
-                "timeout": 30000,
-                "host": "smtp.zoho.com",
-                "user": "dev@cerovueltas.com.ar",
-                "domain": "cerovueltas.com.ar",
-                "password": "12246DA28E94264D4D2C5B48127F9FD3AAD28B702D0BE875897686D1AE1F6B6B"
-            }
-        },
-        "verifyEmailAddress": {
-            "subject": "Confirme su cuenta de CeroVueltas",
-            "body": "Por favor, acceda a <a href=\"https://preview.ide.cerovueltas.com.ar/login/email/confirm?code=${code}\">verificar esta dirección de correo</a>"
-        }
+        "db": "mongodb://localhost:27017/secuelas-dev"
     }
 }

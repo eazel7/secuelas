@@ -9,7 +9,7 @@ module.exports = {
     new BitBarWebpackProgressPlugin(),
     new CleanWebpackPlugin(['dist/*']),
     new HtmlWebpackPlugin({
-      title: 'Cero Vueltas',
+      title: 'Secuelas',
       template: path.resolve(__dirname, 'client', 'index.html')
     })
   ],
@@ -29,10 +29,6 @@ module.exports = {
       {
         test: /node_modules\/.*\.(jpe?g|gif|png|svg)$/,
         loader: 'file-loader?emitFile=false&name=[path][name].[ext]'
-      },
-      {
-        test: /node_modules\/leaflet-draw\/dist\/images\/spritesheet\.svg$/,
-        loader: 'file-loader?emitFile=true&name=[path][name].[ext]'
       },
       {
         test: /client\/.*\.(png|jpg|gif)$/,

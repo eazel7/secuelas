@@ -1,6 +1,6 @@
 require('angular')
 .module(
-(module.exports = 'cerovueltas.shop.left-sidenav'),
+(module.exports = 'left-sidenav'),
 [
     require('angular-material'),
     require('angular-material-icons'),
@@ -19,20 +19,6 @@ function () {
         template: require('raw-loader!./template.html'),
         replace: true,
         controller: function ($scope, $state, LeftSidenavLinks, LeftSidenavService, API, LocalStorage, $timeout) {
-            var ctrl = this;
-
-            var refreshUserEmail = function () {
-                if(!LocalStorage.userToken) delete ctrl.userEmail;
-
-                API.auth.getUserEmail().then(function (email) {
-                    ctrl.userEmail = email;
-                });
-            };
-
-            refreshUserEmail();
-
-            $scope.$on('user-changed', refreshUserEmail);
-
             $scope.links = LeftSidenavLinks;
 
             $scope.click = function (l) {

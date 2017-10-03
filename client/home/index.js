@@ -1,6 +1,6 @@
 require('angular')
     .module(
-    (module.exports = 'cerovueltas.home'),
+    (module.exports = 'secuelas.home'),
     [
         require('angular-material'),
         require('angular-material-icons'),
@@ -10,7 +10,7 @@ require('angular')
     .config(
     ($stateProvider) => {
         $stateProvider.state({
-            name: 'cerovueltas.home',
+            name: 'secuelas.home',
             url: '/',
             views: {
                 '@': {

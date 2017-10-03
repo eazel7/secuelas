@@ -4,23 +4,12 @@ function App(frontendApi, api) {
     var app = require('express')();
 
     app.post('/api/:service/:method',
-        (req, res, next) => {
-            if (!req.headers['cerovueltas']) return next();
-
-            api.tokens.decrypt(req.headers['cerovueltas']).then((userToken) => {
-                req.userToken = userToken;
-
-                next();
-            }, (err) => next(err || new Error('token inválido')));
-        },
         jsonParser,
         (req, res, next) => {
             var method = frontendApi[req.params.service].constructor.prototype[req.params.method];
 
             var args = require('origami-js-function-helpers').getFunctionArgumentNames(method)
                 .map((argName) => {
-                    if (argName === 'userToken') return req.userToken;
-                    
                     return req.body[argName];
                 });
 

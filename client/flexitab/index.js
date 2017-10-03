@@ -1,6 +1,6 @@
 require('angular')
 .module(
-    (module.exports = ('cerovueltas.flexitab')),
+    (module.exports = ('secuelas.flexitab')),
     [
         require('angular-material')
     ]

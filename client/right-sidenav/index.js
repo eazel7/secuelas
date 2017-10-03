@@ -1,6 +1,6 @@
 require('angular')
 .module(
-(module.exports = 'cerovueltas.right-sidenav'),
+(module.exports = 'right-sidenav'),
 [
     require('angular-material'),
     require('angular-ui-router')
